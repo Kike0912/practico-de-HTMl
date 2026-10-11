@@ -1,0 +1,603 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Academy</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            color: #263b3c;
+            background: #e9f5f4;
+        }
+
+        header {
+            height: 35px;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 4px 10px;
+        }
+
+        .logo {
+            color: #286967;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .search {
+            width: 45%;
+            max-width: 240px;
+            padding: 5px 10px;
+            border: 1px solid #cbd9d8;
+            border-radius: 20px;
+            background: #eef5f4;
+        }
+
+        .icons {
+            font-size: 15px;
+        }
+
+        nav {
+            display: flex;
+            background: #075b59;
+            color: white;
+            height: 23px;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 7px 12px;
+            font-size: 9px;
+        }
+
+        nav a:first-child {
+            background: #034643;
+            color: #f4b45e;
+        }
+
+        .layout {
+            display: grid;
+            grid-template-columns: 104px minmax(0, 1fr);
+            gap: 8px;
+            padding: 10px 9px;
+        }
+
+        .panel {
+            background: white;
+            border: 1px solid #759c99;
+            border-radius: 5px;
+            overflow: hidden;
+            min-width: 0;
+        }
+
+        .panel-title {
+            background: #319f9b;
+            color: white;
+            padding: 6px 8px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .quick-content {
+            padding: 6px;
+        }
+
+        .quick-content a {
+            display: block;
+            text-decoration: none;
+            color: #222;
+            background: #f7fbfa;
+            border: 1px solid #9ab4b1;
+            border-radius: 4px;
+            margin-bottom: 6px;
+            padding: 13px 5px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 9px;
+        }
+
+        .quick-content a:nth-child(2) {
+            background: #fff0df;
+            border-color: #e5b47e;
+        }
+
+        main {
+            min-width: 0;
+        }
+
+        .welcome {
+            margin-bottom: 7px;
+        }
+
+        .welcome-content {
+            padding: 6px;
+        }
+
+        .banner {
+            min-height: 89px;
+            border-radius: 4px;
+            background: linear-gradient(110deg, #194e4e, #276b69, #163e40);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 12px;
+        }
+
+        .banner h1 {
+            font-size: 16px;
+            margin: 4px 0 7px;
+        }
+
+        .banner p {
+            margin: 0;
+            line-height: 1.4;
+            max-width: 320px;
+        }
+
+        .columns {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 7px;
+        }
+
+        .orange-title {
+            background: #f4a044;
+            color: #172e2e;
+            padding: 6px;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        .schedule-content {
+            padding: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 8px;
+        }
+
+        th, td {
+            border: 1px solid #9db7b5;
+            padding: 5px 3px;
+            text-align: left;
+            overflow-wrap: anywhere;
+        }
+
+        th {
+            background: #075b59;
+            color: white;
+            font-weight: normal;
+        }
+
+        td {
+            background: #e7f3f2;
+        }
+
+        .status {
+            text-align: center;
+        }
+
+        .complete {
+            background: #c6e8d1;
+        }
+
+        .success {
+            background: #c3e5d0;
+        }
+
+        .pending {
+            background: #f9d4aa;
+        }
+
+        .reading-content {
+            padding: 6px;
+        }
+
+        .article {
+            display: flex;
+            gap: 5px;
+            padding: 7px 5px;
+            margin-bottom: 5px;
+            border: 1px solid #9db7b5;
+            border-radius: 4px;
+            background: white;
+        }
+
+        .article-image {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+            background: #d4e6e1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 21px;
+        }
+
+        .article h3 {
+            margin: 0 0 4px;
+            font-size: 9px;
+            color: #222;
+        }
+
+        .article p {
+            margin: 0;
+            font-size: 8px;
+            line-height: 1.25;
+            overflow-wrap: anywhere;
+        }
+
+        .feedback {
+            margin-top: 7px;
+        }
+
+        .feedback-content {
+            padding: 9px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .field {
+            min-width: 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 4px;
+            color: #222;
+            font-size: 9px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #89a6a3;
+            border-radius: 4px;
+            background: white;
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+        }
+
+        input, select {
+            height: 19px;
+        }
+
+        textarea {
+            height: 51px;
+            resize: vertical;
+        }
+
+        .message-field {
+            margin-bottom: 7px;
+        }
+
+        button {
+            background: #f4a044;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 13px;
+            font-size: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #dc842b;
+        }
+
+        footer {
+            min-height: 23px;
+            background: #075b59;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            padding: 7px 9px;
+            font-size: 9px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .layout {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-content {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 5px;
+            }
+
+            .quick-content a {
+                margin: 0;
+            }
+
+            .columns {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                padding: 7px 4px;
+                font-size: 8px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">🌐 GLOBAL ACADEMY</div>
+        <input class="search" type="search" placeholder="Search...">
+        <div class="icons">▦ 🔔 👤⌄</div>
+    </header>
+
+    <nav>
+        <a href="#dashboard">DASHBOARD</a>
+        <a href="#courses">MY COURSES</a>
+        <a href="#reading">RESOURCES</a>
+        <a href="#feedback">COMMUNITY</a>
+        <a href="#footer">HELP</a>
+    </nav>
+
+    <div class="layout">
+
+        <aside class="panel">
+            <div class="panel-title">QUICK ACCESS</div>
+
+            <div class="quick-content">
+                <a href="#feedback">Announcements</a>
+                <a href="#courses">Calendar Events</a>
+                <a href="#courses">Grades</a>
+                <a href="#reading">Faculty Directory</a>
+            </div>
+        </aside>
+
+        <main id="dashboard">
+
+            <section class="panel welcome">
+                <div class="panel-title">LEARNING HUB</div>
+
+                <div class="welcome-content">
+                    <div class="banner">
+                        <h1>WELCOME BACK</h1>
+                        <p>Join your bank at alerting and lips in the motivational, and get into your community truth.</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="columns">
+
+                <section class="panel" id="courses">
+                    <div class="orange-title">COURSE SCHEDULE</div>
+
+                    <div class="schedule-content">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Module</th>
+                                    <th>Topic</th>
+                                    <th>Instructor</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td rowspan="3">Module 1</td>
+                                    <td>• Learning &amp; Profession Courses</td>
+                                    <td>John B.B.</td>
+                                    <td>8/12/2024</td>
+                                    <td class="status complete">Complete</td>
+                                </tr>
+
+                                <tr>
+                                    <td>• Experiment Learning</td>
+                                    <td>BerriMant</td>
+                                    <td>3/11/2024</td>
+                                    <td class="status complete">Complete</td>
+                                </tr>
+
+                                <tr>
+                                    <td>• Summary Learning</td>
+                                    <td>Jimm F.</td>
+                                    <td>12/1/2024</td>
+                                    <td class="status pending">Complete</td>
+                                </tr>
+
+                                <tr>
+                                    <td rowspan="3">Module 2</td>
+                                    <td>• Student Schedule</td>
+                                    <td>Geman S.</td>
+                                    <td>8/12/2024</td>
+                                    <td class="status success">Success</td>
+                                </tr>
+
+                                <tr>
+                                    <td>• Developmental Learning</td>
+                                    <td>Flashhster</td>
+                                    <td>12/02/2024</td>
+                                    <td class="status pending">Success</td>
+                                </tr>
+
+                                <tr>
+                                    <td>• Social Learning Designs &amp; communities</td>
+                                    <td>Mari W.</td>
+                                    <td>8/12/2024</td>
+                                    <td class="status pending">Plan</td>
+                                </tr>
+
+                                <tr>
+                                    <td rowspan="4">Module 3</td>
+                                    <td>• Summary Schedule</td>
+                                    <td>Jims A.</td>
+                                    <td>01/13/2024</td>
+                                    <td class="status pending">Plan</td>
+                                </tr>
+
+                                <tr>
+                                    <td>• Student Learning</td>
+                                    <td>Marvi M.</td>
+                                    <td>9/12/2024</td>
+                                    <td class="status pending">Complete</td>
+                                </tr>
+
+                                <tr>
+                                    <td>• Complete Learning</td>
+                                    <td>Geman S.</td>
+                                    <td>02/12/2024</td>
+                                    <td class="status success">Success</td>
+                                </tr>
+
+                                <tr>
+                                    <td>• Developmental Learning</td>
+                                    <td>Flashhster</td>
+                                    <td>9/13/2024</td>
+                                    <td class="status pending">Success</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section class="panel" id="reading">
+                    <div class="orange-title">RECOMMENDED READING</div>
+
+                    <div class="reading-content">
+
+                        <article class="article">
+                            <div class="article-image">📚</div>
+                            <div>
+                                <h3>Recommended Articles</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tincidunt sit amet nunc.</p>
+                            </div>
+                        </article>
+
+                        <article class="article">
+                            <div class="article-image">📖</div>
+                            <div>
+                                <h3>Fast Fitting Becoming Articles</h3>
+                                <p>Follogantistigmiar commons amuntaineries and ipsum professional audits orci, sit amet commodo arcu.</p>
+                            </div>
+                        </article>
+
+                        <article class="article">
+                            <div class="article-image">📰</div>
+                            <div>
+                                <h3>Recommended Articles</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tincidunt sit amet nunc.</p>
+                            </div>
+                        </article>
+
+                    </div>
+                </section>
+
+            </div>
+
+            <section class="panel feedback" id="feedback">
+                <div class="panel-title">FEEDBACK &amp; SUPPORT</div>
+
+                <div class="feedback-content">
+
+                    <form action="#" method="get">
+
+                        <div class="form-row">
+
+                            <div class="field">
+                                <label for="subject">Subject</label>
+                                <input
+                                    type="text"
+                                    id="subject"
+                                    name="subject"
+                                    required
+                                >
+                            </div>
+
+                            <div class="field">
+                                <label for="category">Category</label>
+                                <select
+                                    id="category"
+                                    name="category"
+                                    required
+                                >
+                                    <option value="">Select Category</option>
+                                    <option value="comments">Comments</option>
+                                    <option value="questions">Questions</option>
+                                    <option value="support">Support</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="message-field">
+                            <label for="message">Your Message</label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                required
+                            ></textarea>
+                        </div>
+
+                        <button type="submit">Send</button>
+
+                    </form>
+
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+
+    <footer id="footer">
+        <div>
+            <a href="#footer">About Us</a>
+            <a href="#footer">Privacy Policy</a>
+            <a href="#footer">Terms of Use</a>
+            <a href="#feedback">Contact</a>
+        </div>
+
+        <div>© 2024 GLOBAL ACADEMY</div>
+    </footer>
+
+</body>
+</html>
